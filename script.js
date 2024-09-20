@@ -1,5 +1,5 @@
-const API_KEY = "1d3a0eefa97b499d8fbc4ee93eeb40b7"; // Replace with your NewsAPI key
-const url = "https://newsapi.org/v2/everything?q=";
+// Update this to call your server's endpoint, not NewsAPI directly
+const url = "https://newsapp-server-92ku.onrender.com/news?q="; // Fetch news from your server instead of NewsAPI directly
 
 // Event listener for page load
 window.addEventListener("load", () => fetchNews("India"));
@@ -8,10 +8,10 @@ function reload() {
   window.location.reload();
 }
 
-// Fetch news data from the API
+// Fetch news data from the server (which will fetch it from NewsAPI)
 async function fetchNews(query) {
   try {
-    const res = await fetch(`${url}${query}&apiKey=${API_KEY}`);
+    const res = await fetch(`${url}${query}`); // Now making a request to the server
     const data = await res.json();
 
     // Log the response to check for issues
